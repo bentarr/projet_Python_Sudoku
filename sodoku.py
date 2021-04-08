@@ -12,8 +12,6 @@ matriceUnsolved = [[0,0,0,2,0,0,4,0,0,],
                   [5,1,0,0,0,4,2,9,0,],
                   [6,4,0,9,0,0,1,0,0,],
                   [0,0,9,0,0,5,0,0,1,]]
-
-
 rows = [] #Mise en place de la matrice sur l'interface graphique
 for i in range(len(matriceUnsolved)):
     cols = []
