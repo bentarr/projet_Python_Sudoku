@@ -18,7 +18,7 @@ rows = [] #Mise en place de la matrice sur l'interface graphique
 for i in range(len(matriceUnsolved)):
     cols = []
     for j in range(len(matriceUnsolved[i])):
-        e = Entry(relief=GROOVE)
+        e = Entry(relief=GROOVE, bg="lightblue")
         e.grid(row=i, column=j, sticky=NSEW)
         e.insert(END, matriceUnsolved[i][j])
         cols.append(e)
@@ -35,13 +35,19 @@ def VerifSolution() : #Fonction de vérification de la matrice
                     [6,4,8,9,2,7,1,3,5,],
                     [2,7,9,1,3,5,6,4,8,]]
     check = 0
+    print("----------------")
     for i in range(len(matriceSolved)):
         for j in range(len(matriceSolved[i])):
-            if (str(matriceSolved[i][j]) != str(rows[i][j].get())):
+            if (str(matriceSolved[i][j]) != rows[i][j].get()):
+                print(rows[i][j].get())
                 check += check + 1
-    print(check)
+                rows[i][j].config(relief=GROOVE, bg="red")
+            else:
+                print(rows[i][j].get())
+                rows[i][j].config(relief=GROOVE, bg="green")
+    print("----------------")
     if(check != 0):
-        messagebox.showinfo("Résultat de la comparaison", "C'est perdu, essaye encore !")
+       messagebox.showinfo("Résultat de la comparaison", "C'est perdu, essaye encore !")
     else:
         messagebox.showinfo("Résultat de la comparaison", "C'est gagné, félicitations !")       
 
